@@ -1,0 +1,7 @@
+Pour la review de code de Brice Dumont :
+Le code est bon et respecte les consignes. 
+Le find peut être remplacé par strstr car il est plus rapide.
+Attention, il y a des fichiers binaires dans le repo.
+
+Pour la review de code de Mathilde Machuron :
+Le code n'existe pas et n'a pas de dossier ni de CMakeLists.txt.. Dommage

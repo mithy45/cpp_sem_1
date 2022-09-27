@@ -1,0 +1,5 @@
+Pour la review de code de Brice Dumont :
+Le code est bon et optimisé mais attention, dans le dossier il y a les exécutables.
+
+Pour la review de code de Mathilde Machuron :
+Le code est bon et optimisé mais pas de CMakeLists.txt et ne lis pas dans le stdin et l'exercise n'est pas dans le dossier correspondant.
