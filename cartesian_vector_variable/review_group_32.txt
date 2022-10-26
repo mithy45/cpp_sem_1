@@ -1,0 +1,5 @@
+Brice Dumont:
+Code  bon dans l'ensemble malgré la sortie de l'erreur qui est fait avec un asset alors que dans le sujet il faut utiliser runtime_error avec le message "Incompatible size".
+
+Mathilde Machuron:
+Rien
