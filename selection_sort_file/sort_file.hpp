@@ -20,7 +20,7 @@ void read_file_to_cont(std::ifstream& f, CONTAINER& c)
 }
 
 template<class TYPE, class CONTAINER>
-void read_and_sort(TYPE& fi, TYPE& fo) {
+void read_and_sort(std::ifstream& fi, std::ofstream& fo) {
     CONTAINER container;
 
     read_file_to_cont<TYPE, CONTAINER>(fi, container);
@@ -31,69 +31,60 @@ void read_and_sort(TYPE& fi, TYPE& fo) {
 }
 
 template<class TYPE>
-void read_and_sort_decide_container(TYPE& fi, TYPE& fo) 
+void read_and_sort_decide_container(std::ifstream& fi, std::ofstream& fo) 
 {
     char line;
     fi >> line;
-
     fo << line << std::endl;
 
     switch(line)
     {
-    case 'l':
-        read_and_sort<TYPE, std::list<TYPE>>(fi, fo);
-        break;
-    case 'v':
-        read_and_sort<TYPE, std::vector<TYPE>>(fi, fo);
-        break;
-    case 'd':
-        read_and_sort<TYPE, std::deque<TYPE>>(fi, fo);
-        break;
-    default:
-        std::runtime_error("Can only handle list, vector and deque");
-        break;
+        case 'l':
+            read_and_sort<TYPE, std::list<TYPE>>(fi, fo);
+            break;
+        case 'v':
+            read_and_sort<TYPE, std::vector<TYPE>>(fi, fo);
+            break;
+        case 'd':
+            read_and_sort<TYPE, std::deque<TYPE>>(fi, fo);
+            break;
+        default:
+            std::runtime_error("Can only handle list, vector and deque");
+            break;
     }
 }
 
+
 void read_and_sort_decide_valuetype(std::ifstream& fi, std::ofstream& fo)
 {
-  char line;
+    char line;
+    fi >> line;
+    fo << line << std::endl;
 
-  fi >> line;
-
-  fo << line << std::endl;
-
-  switch(line)
-  {
-    case 'i':
-      read_and_sort_decide_container<int>(fi, fo);
-      
-      break;
-
-    case 'u':
-      read_and_sort_decide_container<unsigned>(fi, fo);
-      break;
-
-    case 'f':
-      read_and_sort_decide_container<float>(fi, fo);
-      break;
-
-    case 'd':
-      read_and_sort_decide_container<double>(fi, fo);
-      break;
-
-    case 'c':
-      read_and_sort_decide_container<char>(fi, fo);
-      break;
-
-    case 's':
-      read_and_sort_decide_container<std::string>(fi, fo);
-      break;
-
-    default:
-      std::runtime_error("Type value doesn't match");
-      break;
-  }
+    switch(line)
+    {
+        case 'i':
+            read_and_sort_decide_container<int>(fi, fo);
+            break;
+        case 'u':
+            read_and_sort_decide_container<unsigned>(fi, fo);
+            break;
+        case 'f':
+            read_and_sort_decide_container<float>(fi, fo);
+            break;
+        case 'd':
+            read_and_sort_decide_container<double>(fi, fo);
+            break;
+        case 'c':
+            read_and_sort_decide_container<char>(fi, fo);
+            break;
+        case 's':
+            read_and_sort_decide_container<std::string>(fi, fo);
+            break;
+        default:
+            std::runtime_error("Can only handle int, unsigned, float, double, char, string");
+            break;
+    }
 }
 
 
