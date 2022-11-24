@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.16)
+
+set(CMAKE_CXX_STANDARD 17)
+
+#set the project name
+project(selection_sort_file)
+
+add_executable(main main.cc)
+
+#add the lib
+#add_library(my_source SHARED sources.cpp)
+
+#add another
+#add_library(my_source_2 SHARED sources_2.cpp)
+
+#add executable
+#add_executable(main main.cpp)
+
+#do not forget to link
+#target_link_libraries(main my_source)
+
+#target_link_libraries(main my_source_2)
