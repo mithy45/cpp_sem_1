@@ -24,35 +24,3 @@ void my_selection_sort(IT begin, IT end, COMP comp)
         swap(*min, *i);
     }
 }
-
-template<class IT>
-void my_selection_sort_integral(IT begin, IT end)
-{
-    for (IT i = begin; i != end; ++i)
-    {
-        IT min = i;
-        IT max = i; 
-        for (IT j = ++max; j != end; ++j)
-        {
-            if (*j < *min)
-                min = j;
-        }
-        swap(*min, *i);
-    }
-}
-
-template<class IT>
-void my_selection_sort_descending(IT begin, IT end)
-{
-    for (IT i = begin; i != end; ++i)
-    {
-        IT min = i;
-        IT max = i; 
-        for (IT j = ++max; j != end; ++j)
-        {
-            if (*j > *min)
-                min = j;
-        }
-        swap(*min, *i);
-    }
-}

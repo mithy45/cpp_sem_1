@@ -6,6 +6,8 @@
 #include <vector>
 #include <deque>
 
+#include <tuple>
+
 #include "my_sort.hpp"
 
 // Change here
@@ -44,14 +46,12 @@ void read_and_sort(std::ifstream& fi, std::ofstream& fo) {
     {
         read_file_to_cont<TYPE, CONTAINER>(fi, container);
         if constexpr (std::is_same_v<TYPE, int> || std::is_same_v<TYPE, unsigned> || std::is_same_v<TYPE, bool>)
-            my_selection_sort_integral(container.begin(), container.end(), [](char a, char b)->bool{return a < b;});
+            my_selection_sort(container.begin(), container.end(), [](TYPE a, TYPE b)->bool
+                                                                    {return std::make_tuple(a%2, a) < std::make_tuple(b%2, b);});
         else
-            my_selection_sort_descending(container.begin(), container.end());            
+            my_selection_sort(container.begin(), container.end(), [](TYPE a, TYPE b)->bool
+                                                                    {return a > b;});         
     }
-    // if constexpr (std::is_same_v<TYPE, int> || std::is_same_v<TYPE, unsigned> || std::is_same_v<TYPE, char> || std::is_same_v<TYPE, bool>)
-        // my_selection_sort<INTEGRAL>(container.begin(), container.end());
-    // else
-    my_selection_sort(container.begin(), container.end());
 
     for (TYPE& elm : container)
         fo << elm << std::endl;
